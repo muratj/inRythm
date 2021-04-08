@@ -71,7 +71,7 @@ public class PaginationHelper {
      * @return page index starts from 0
      */
     public int pageIndex(int itemIndex) {
-        if (itemIndex >= itemCount()) return -1;
+        if (itemIndex >= itemCount() || itemIndex < 0) return -1;
         int pageNumber = 0;
         int endIndex = 0;
 
