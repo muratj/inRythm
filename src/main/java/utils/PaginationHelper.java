@@ -34,7 +34,7 @@ public class PaginationHelper {
 
 
     /**
-     * Gives how many pages in the pagination
+     * Returns how many pages in the pagination
      * @return pages size
      */
     public int pageCount() {
@@ -66,7 +66,7 @@ public class PaginationHelper {
     }
 
     /**
-     * Returns page index where located the item provided as a parameters
+     * Returns page index where located the item provided as a parameter
      * @param itemIndex index of the item based on initial array
      * @return page index starts from 0
      */
