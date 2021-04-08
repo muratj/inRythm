@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import utils.PaginationHelper;
 
-import java.util.Arrays;
-
 public class PaginationTest {
     PaginationHelper helper;
 
@@ -42,11 +40,5 @@ public class PaginationTest {
         helper = new PaginationHelper(new String[]{"a", "b", "c", "d","e","f"}, 4);
 
         Assert.assertEquals(helper.pageIndex(5), 1);
-    }
-
-    @Test
-    public void test1() {
-        Object arr = new int[]{2,3,4,4};
-        System.out.println(Arrays.toString((int[]) arr));
     }
 }
