@@ -3,9 +3,11 @@
 ## Setup
 Maven project
 
-All necessary dependencies in `pom.xml` file
+All necessary dependencies and Java version in `pom.xml` file
 
 ## Structure
+
+### Main Code
 Main code located in `src/main/java/utils`
 
 File `Page.java` created as a utility and 
@@ -32,3 +34,6 @@ provides information about pages and items:
 * `itemCount` - Returns how many items in the pagination
 * `pageItemCount` - Returns how many items in the provided page
 * `pageIndex` - Returns page index where located the item provided as a parameter
+
+### Test environment
+Test environment located in `src/test/java/unitTests/PaginationTest.java`
