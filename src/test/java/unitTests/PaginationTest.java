@@ -2,53 +2,46 @@ package unitTests;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.experimental.theories.DataPoints;
 import utils.PaginationHelper;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class PaginationTest {
-    // Test Data
-    char[] charArr = {'a','b','c','d','e','f'};
-    int[] intArr = {1,2,3,4,5,6,3,2,1};
-    String[] strArr = {"a", "b", "c", "d","e","f"};
-
-
     PaginationHelper helper;
+
     @Test
     public void classVerification() {
-        PaginationHelper helper = new PaginationHelper(charArr, 4 );
+        helper = new PaginationHelper(new char[]{'a','b','c','d','e','f'}, 4 );
 
         Assert.assertEquals(helper.getItems().toString(), "[[a, b, c, d], [e, f]]");
     }
 
     @Test
     public void pagesTest() {
-        helper = new PaginationHelper(intArr, 4);
+        helper = new PaginationHelper(new int[]{1,2,3,4,5,6,3,2,1}, 4);
 
-        Assert.assertEquals(helper.pageCount(), 2);
+        Assert.assertEquals(helper.pageCount(), 3);
     }
 
     @Test
     public void itemsCount() {
-        helper = new PaginationHelper(intArr, 4);
+        helper = new PaginationHelper(new int[]{1,2,3,4,5,6,3,2,1}, 4);
 
-        System.out.println(helper.itemCount());
+        Assert.assertEquals(helper.itemCount(), 9);
     }
 
     @Test
     public void itemsPerPage() {
-        helper = new PaginationHelper(strArr, 4);
+        helper = new PaginationHelper(new String[]{"a", "b", "c", "d","e","f"}, 4);
 
-        System.out.println(helper.pageItemCount(3));
+        Assert.assertEquals(helper.pageItemCount(0), 4);
     }
 
     @Test
     public void findPageByItemIndex() {
-        helper = new PaginationHelper(strArr, 4);
-        System.out.println(helper.pageIndex(8));
+        helper = new PaginationHelper(new String[]{"a", "b", "c", "d","e","f"}, 4);
+
+        Assert.assertEquals(helper.pageIndex(5), 1);
     }
 
     @Test
