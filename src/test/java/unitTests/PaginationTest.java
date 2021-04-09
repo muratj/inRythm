@@ -16,29 +16,34 @@ public class PaginationTest {
 
     @Test
     public void pagesTest() {
-        helper = new PaginationHelper(new int[]{1,2,3,4,5,6,3,2,1}, 4);
+        helper = new PaginationHelper(new char[]{'a','b','c','d','e','f'}, 4);
 
-        Assert.assertEquals(helper.pageCount(), 3);
+        Assert.assertEquals(2, helper.pageCount());
     }
 
     @Test
     public void itemsCount() {
-        helper = new PaginationHelper(new int[]{1,2,3,4,5,6,3,2,1}, 4);
+        helper = new PaginationHelper(new char[]{'a','b','c','d','e','f'}, 4);
 
-        Assert.assertEquals(helper.itemCount(), 9);
+        Assert.assertEquals(6, helper.itemCount());
     }
 
     @Test
     public void itemsPerPage() {
-        helper = new PaginationHelper(new String[]{"a", "b", "c", "d","e","f"}, 4);
+        helper = new PaginationHelper(new char[]{'a','b','c','d','e','f'}, 4);
 
-        Assert.assertEquals(helper.pageItemCount(0), 4);
+        Assert.assertEquals(4, helper.pageItemCount(0));
+        Assert.assertEquals(2, helper.pageItemCount(1));
+        Assert.assertEquals(-1, helper.pageItemCount(2));
     }
 
     @Test
     public void findPageByItemIndex() {
-        helper = new PaginationHelper(new String[]{"a", "b", "c", "d","e","f"}, 4);
+        helper = new PaginationHelper(new char[]{'a','b','c','d','e','f'}, 4);
 
-        Assert.assertEquals(helper.pageIndex(5), 1);
+        Assert.assertEquals(1, helper.pageIndex(5));
+        Assert.assertEquals(0, helper.pageIndex(2));
+        Assert.assertEquals(-1, helper.pageIndex(20));
+        Assert.assertEquals(-1, helper.pageIndex(-10));
     }
 }
