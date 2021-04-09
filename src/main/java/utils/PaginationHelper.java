@@ -8,6 +8,11 @@ public class PaginationHelper {
     private final List<Object> items = new ArrayList<>();
     private final int itemsPerPage;
 
+    /**
+     * Pagination Constructors transfers primitive arrays into List<Object>
+     * @param itemsArr
+     * @param itemsPerPage
+     */
     public PaginationHelper(int[] itemsArr, int itemsPerPage) {
         for (Object item : itemsArr) {
             this.items.add(item);
@@ -25,14 +30,28 @@ public class PaginationHelper {
         this.itemsPerPage = itemsPerPage;
     }
 
+
+    /**
+     * Returns how many pages in the pagination
+     * @return pages size
+     */
     public int pageCount(){
         return (int) Math.ceil((double) items.size() / itemsPerPage);
     }
 
+    /**
+     * Returns how many items in the pagination
+     * @return count of items
+     */
     public int itemCount() {
         return items.size();
     }
 
+    /**
+     * Returns how many items in the provided page
+     * @param pageIndex
+     * @return items count in the page
+     */
     public int pageItemCount(int pageIndex) {
         int pageItems = 0;
         int pages = (int) Math.ceil((double) items.size() / itemsPerPage);
@@ -49,15 +68,15 @@ public class PaginationHelper {
         return pageItems;
     }
 
+    /**
+     * Returns page index where located the item provided as a parameter
+     * @param itemIndex
+     * @return page index
+     */
     public int pageIndex(int itemIndex){
         if (itemIndex >= itemCount() || itemIndex < 0) return -1;
 
-        int page = (int) Math.floor((double) itemIndex / itemsPerPage);
-
-        return page;
+        return (int) Math.floor((double) itemIndex / itemsPerPage);
     }
 
-    public List<Object> getItems() {
-        return items;
-    }
 }
