@@ -1,4 +1,5 @@
 # QA Engineer Exercise inRhythm
+## Task has 2 versions: on `master` and `secondWay` branches
 
 ## Setup
 Maven project
